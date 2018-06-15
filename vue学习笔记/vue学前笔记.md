@@ -1,5 +1,5 @@
 ## 什么是forEach 、for in、 for of？
-	先看看具体例子，代码如下
+	-先看看具体例子，代码如下
 ```
 	var arr = [1, 2, 3, 4];
 	arr.forEach(function(item) { //没有return
@@ -17,10 +17,10 @@
 		console.log(obj[val])
 	}
 ```
-	如上，
-	1、forEach没有return
-	2、for in能返回arr的属性，且返回的是string类型的
-	3、for of不能遍历对象，如果需要遍历对象，通过Object.keys,且需要返回obj的方法，即obj[val]
+	-如上，
+	-1、forEach没有return
+	-2、for in能返回arr的属性，且返回的是string类型的
+	-3、for of不能遍历对象，如果需要遍历对象，通过Object.keys,且需要返回obj的方法，即obj[val]
 
 ## filter
 	filter 正如其名，就是过滤的，一如既往，来个例子：
@@ -31,7 +31,7 @@ let newArr = [1, 2, 3, 4, 5].filter(function (item) {
 });
 consolo.log(newArr);
 ```
-	简单说说，上面的例子，我们主要是想获取数组里大于等于2且小于等于5的数，只有true才通过过滤，也就是我们所期望的值
+	-简单说说，上面的例子，我们主要是想获取数组里大于等于2且小于等于5的数，只有true才通过过滤，也就是我们所期望的值
 	需要注意的是，这里的写法，不能写为2<=item<=5。简单解释下，如果写为2<=item<=5，代码先进行（2<=item）这样返回是一个布尔值，那么布尔值是不会大于1的，所以接下来（2<=item) <=5肯定返回true。
 
 ## map 映射 将原有的数组映射成一个新数组
