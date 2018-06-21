@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<script>
+	//forEach 、for in、 for of、
+	var arr = [1, 2, 3, 4];
+	arr.forEach(function(item) { //没有return
+		console.log(typeof(item));
+	})
+
+	for (key in arr) { //返回的string对象
+		console.log(typeof(key))
+	}
+	var obj ={
+		school: 'gdou',
+		age: 8
+	}
+	for (let val of Object.keys(obj)) { //支持return 并且是值of数组（不能遍历对象）
+		console.log(obj[val])
+	}
+	</script>
+
+	<script>
+	//filter  过滤
+	let newArr = [1, 2, 3, 4, 5].filter(function (item) {
+		return item >= 2 && item <= 5;
+	})
+	console.log(newArr);
+
+	//map  映射 将原有的数组映射成一个新数组 [1, 2, 3]
+	//
+	let arr1 = [1, 2, 3].map(function (item) {
+		return `<li>${item}</li>`//``是es6中的模板字符串，用${}获取值 遇到变量用${}取值
+	})
+	console.log(arr1)
+	</script>
+
+	<!--      /======================================/        -->
+	<script>
+	//some includes
+	//
+	let arr2 = [1, 2, 3, 4, 55];
+
+	console.log(arr2.includes(5));// includes 返回找到的那一项
+	let result = arr2.find(function (item, index) {//找到就停止
+		console.log('this:' + this);
+		return item.toString().indexOf(5) > -1;
+	})
+	console.log(result);
+
+	let result2 = arr2.some(function (item, index) {//找到就停止
+		return item.toString().indexOf(5) > -1;
+	})
+	console.log(result2)
+
+	let result3 = arr2.every(function(item, index) {
+		return item.toString().indexOf(6) > -1;
+	})
+	console.log('every:' + result3);
+	</script>
+
+	<script>
+	[1, 2, 3, 4, 5].reduce(function (prev, next, index, item) {
+		console.log(prev, next, index, item);
+		return 100;
+	})
+	let sum2 = [[1,2,3],[4,5,6],[7,8,9]].reduce(function(prev, next) {
+		return prev.concat(next);
+	})
+	console.log(sum2);
+	let sum3 = [{price: 30, count: 2},{price: 30, count: 3},{price: 30, count: 4}].reduce(function(prev, next) {
+		return prev + next.price * next.count;
+	})
+	console.log(sum3)
+	</script>
+
+
+	<script>
+
+	let a = b => {
+		return c => b+c;
+	}
+	console.log(a(1)(2));
+	</script>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Desmond</title>
+	<script src="./node_modules/vue/dist/vue.js"></script>
+</head>
+<body>
+	<!-- 小胡子语法{{}} -->
+	<div id="app">{{msg}}</div>
+	
+	<script>
+	//Vue构造函数
+	var vm = new Vue({ //vm == viewModel
+		el: '#app',//告诉vue能管理那个部分，querySelector
+		data: {//data 中的数据会被vm所代理
+			msg: '嗯哼，不错不错'//可以通过vm.msg取到对应的内容
+		}
+	})
+	</script>
+</body>
+</html>
