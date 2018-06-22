@@ -1,0 +1,26 @@
+[
+	{
+		"isSelected": true,
+		"productCover": "https://img10.360buyimg.com/n5/jfs/t4021/239/1266814902/157178/495cfca6/586f03b2Na4d602a8.jpg",
+		"productName": "iphone x",
+		"productInfo": "贵的飞起,但是还是得买",
+		"productPrice": 57.8,
+		"productCount": 3
+	},
+	{
+		"isSelected": true,
+		"productCover": "https://img10.360buyimg.com/n5/jfs/t4021/239/1266814902/157178/495cfca6/586f03b2Na4d602a8.jpg",
+		"productName": "Samsung",
+		"productInfo": "贵的飞起，但是还是得买",
+		"productPrice": 57.8,
+		"productCount": 3
+	},
+	{
+		"isSelected": true,
+		"productCover": "https://img10.360buyimg.com/n5/jfs/t4021/239/1266814902/157178/495cfca6/586f03b2Na4d602a8.jpg",
+		"productName": "小米",
+		"productInfo": "贵的飞起，但是还是得买",
+		"productPrice": 57.8,
+		"productCount": 3
+	}
+]

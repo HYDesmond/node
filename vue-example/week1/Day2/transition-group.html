@@ -1,0 +1,66 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="node_modules/animate.css/animate.css">
+</head>
+<body>
+	<div id="app">
+		<button>切换</button>
+		<input type="text" v-model="query">
+		<transition-group enter-active-class="animated bounceInUp" leave-active-class="animated bounceOutDown">
+			<div v-for="(a, index) in newArr" :key="index">{{a}}</div>
+		</transition-group>
+	</div>
+	<script src="node_modules/vue/dist/vue.js"></script>
+	<script>
+	let vm = new Vue({
+		el: '#app',
+		computed: {
+			newArr(){
+				return this.arr.filter(item=>item==this.query);
+			}
+		},
+		data: {
+			flag: true,
+			arr: [1, 2, 3, 4, 5],
+			query: ''
+		}
+	})
+	</script>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="node_modules/animate.css/animate.css">
+</head>
+<body>
+	<div id="app">
+		<button>切换</button>
+		<input type="text" v-model="query">
+		<transition-group enter-active-class="animated bounceInUp" leave-active-class="animated bounceOutDown">
+			<div v-for="(a, index) in newArr" :key="Math.random()">{{a}}</div>
+		</transition-group>
+	</div>
+	<script src="node_modules/vue/dist/vue.js"></script>
+	<script>
+		let vm = new Vue({
+			el: '#app',
+			computed: {
+				newArr(){
+					return this.arr.filter(item=> item == this.query);
+				}
+			},
+			data: {
+				flag: true,
+				arr: [1, 2, 3, 4, 5],
+				query: ''
+			}
+		})
+	</script>
+</body>
+</html>

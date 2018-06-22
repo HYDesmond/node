@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Desmond</title>
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <style>
+        .del {
+            text-decoration: line-through;
+            color: #f32727fa;
+        }
+        [v-cloak] {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="app" v-cloak>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                        <nav class="navbar navbar-light bg-dark">
+                            <a class="navbar-brand" href="#">
+                                ToDoList
+                            </a>
+                        </nav>
+                        <div class="card text-white bg-success mb-3">
+                        <div class="card-header">
+                            您还有{{count}}件事未完成
+                        </div>
+                        <div class="card-body">
+                            <input type="text" class="form-control" v-model="val" @keyup.enter="add"><br>
+                            <h5 class="card-title">
+                                    <ul class="list-group">
+                                        <li 
+                                        class="list-group-item list-group-item-dark" 
+                                        v-for="(todo,index) in filtertodos"
+                                        @dblclick="remember(todo)"
+                                        >
+                                            <span :class="{del: todo.isSelected}" v-show="cur !== todo">
+                                                <input type="checkbox" v-model="todo.isSelected">{{todo.title}}
+                                            </span>
+                                            <input type="text" 
+                                            v-model="todo.title" 
+                                            v-show="cur == todo"
+                                            @keyup.enter="cancel"
+                                            @blur="cancel"
+                                            v-focus="cur == todo"
+                                            >
+                                            <button class="btn btn-danger float-right" @click="del(todo)">&times;</button>
+                                        </li>
+                                    </ul>
+                            </h5>
+                            <p class="card-text">
+                                    <ul class="nav nav-pills" :class="{active: this.hash == 'all'}">
+                                            <a class="nav-link" href="#/all">全部</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#/finish" :class="{active: this.hash == 'finish'}">已完成</a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a class="nav-link" href="#/unfinish" :class="{active: this.hash == 'unfinish'}">未完成</a>
+                                        </li>
+                                    </ul>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="node_modules/axios/dist/axios.js"></script>
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script src="3.todo-1.js"></script>
+</body>
+</html>

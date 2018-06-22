@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+</head>
+<body>
+	<div id="app">
+		<div class="container">
+			<div class="row">
+				<table class="table table-hover table-bordered">
+					<h1 class="h2 text-warning">购物车</h1>
+					<tr>
+						<!-- click点击时状态尚未改变，说有拿到的总是相反的，所以用change -->
+						<th>全选<input type="checkbox" v-model="checkAll" @change="change"></th>
+						<td>商品</td>
+						<td>单价</td>
+						<td>数量</td>
+						<td>小计</td>
+						<td>操作</td>
+					</tr>
+					<tr v-for="(product, index) in products">
+						<td>
+							<input 
+							type="checkbox" 
+							v-model="product.isSelected"
+							@change="checkOne"
+							>
+						</td>
+						<td>
+							<img 
+							:src="product.productCover" 
+							:title="product.productName">
+							{{product.productName}}
+						</td>
+						<td>{{product.productPrice}}</td>
+						<td>
+							<input 
+							type="number" 
+							v-model.number="product.procuctCount"
+							min="1"
+							>
+						</td>
+						<td>
+							{{product.procuctCount*product.productPrice | mytoFixed(2)}}
+						</td>
+						<td><button class="btn btn-danger" @click="del(product)">删除</button></td>
+					</tr>
+					<tr>
+						<!-- {{sum()}} 数据一变化就会 重新调用此函数 算出最新的结果 。有bug 。 用computed可以解决这个问题-->
+						<td colspan="6">总价格：{{sum() | mytoFixed(2)}}</td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		
+	</div>
+	<script src="node_modules/axios/dist/axios.js"></script>
+	<script src="./node_modules/vue/dist/vue.js"></script>
+	<script>
+		var vm = new Vue({
+			el: '#app',
+			//当给全选赋值是，要影响其他人的变化，当页面刷新是，获取全选值，是根据下面的checkbox计算出来的结果给全选赋值 Object.defineProperty
+		
+			filters: {
+				mytoFixed(input, par){//input代表是管道符前‘|’的值，par为传的值
+					return '￥' + input.toFixed(par)
+				}
+			},
+			created(){//ajax写在created
+				this.getData();
+			},
+			data: {
+				products: [],
+				checkAll: false //默认不全选
+			},
+			methods: {
+				getData() {//初始化
+					axios.get('./carts.json').then(res=>{//使用箭头函数，因为没有this，否则this会指向window
+						this.products = res.data;
+						this.checkOne();//数据获取完成后给checkAll赋予默认值
+						//console.log(res)
+					},err=>{
+						console.log(err);
+					})
+				},
+				del(p){//s删除
+					this.products = this.products.filter(function(item, index) {
+							return item !== p;
+					})
+				},
+				change(){//根据当前自己的状态设置 其他人的状态 实现全选和反选
+					//alert(this.checkAll);
+					this.products.forEach(item=>item.isSelected=this.checkAll)
+				},
+				checkOne(){//根据下面点击的结果控制上面全选的结果
+					this.checkAll = this.products.every(item=>item.isSelected);
+				},
+				sum(){//求和函数
+					//alert(1)
+					return this.products.reduce(function(prev, next) {
+						if(!next.isSelected) return prev;
+						return prev + next.productPrice*next.procuctCount;
+					}, 0)
+				}
+
+			}
+		})
+	</script>
+</body>
+</html>

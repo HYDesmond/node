@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="node_modules/animate.css/animate.css">
+	<style>
+		div > div {
+			width: 100px;
+			height: 100px;
+			background: #de0000;
+		}
+	</style>
+</head>
+<body>
+	<div id="app">
+	<!-- 只有dom从隐藏到显示，或者从显示到隐藏，才能使用vue的动画 -->
+		<!-- vue自定义的标签（组件） -->
+		<button @click="flag=!flag">切换</button>
+		<transition name="des" enter-active-class="animated bounceInup" leave-active-class="animated bounceOutDown">	
+			<div v-show="flag">I love you</div>
+		</transition>
+	</div>
+	<script src="node_modules/vue/dist/vue.js"></script>
+	<script>
+		let vm = new Vue({
+			el: '#app',
+			data: {
+				flag: true
+			}
+		})
+	</script>
+</body>
+</html>
