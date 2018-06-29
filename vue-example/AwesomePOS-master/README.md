@@ -1,11 +1,8 @@
-# AwesomePOS 
+# vue-clip
 
-> 跟着技术胖大神撸的代码，觉得大神厉害之余，十分嫌弃自己。
+> A Vue.js project
 
-- dist文件可以删除，在线上做展示用的
-
-## 技术栈
-前端 ：vue2 + webpack + vueRouter + element
+- 这是跟着技术胖一起敲的代码，稍微改了改
 
 ## Build Setup
 
@@ -23,4 +20,4 @@ npm run build
 npm run build --report
 ```
 
-For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).

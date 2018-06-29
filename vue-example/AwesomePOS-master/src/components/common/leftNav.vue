@@ -1,72 +1,53 @@
 <template>
-  <div class="left-nav">
-    <ul>
-        <li>
-            <i class="icon iconfont icon-wodezichan"></i>
-            <div>收银</div>
-        </li>
-
-        <li>
-            <i class="icon iconfont icon-dianpu"></i>
-            <div>店铺</div>
-        </li>
-
-        <li>
-            <i class="icon iconfont icon-hanbao"></i>
-            <div>商品</div>
-        </li>
-
-         <li>
-            <i class="icon iconfont icon-huiyuanqia"></i>
-            <div>会员</div>
-        </li>
-
-         <li>
-            <i class="icon iconfont icon-shijian"></i>
-            <div>抢购</div>
-        </li>
-
-        <li>
-            <i class="icon iconfont icon-tongji"></i>
-            <div>统计</div>
-        </li>
-    </ul>
-  </div>
-  <!-- 这是左边固定的导航 -->
+    <div class="leftNav"> 
+        <ul>
+            <li>
+                <i class="iconfont icon-home"></i>
+                <p>店铺</p>
+            </li>
+            <li>
+                <i class="iconfont icon-shezhi"></i>
+                <p>设置</p>
+            </li>
+            <li>
+                <i class="iconfont icon-menu"></i>
+                <p>菜单</p>
+            </li>
+            <li>
+                <i class="iconfont icon-form_Basicinformati"></i>
+                <p>会员</p>
+            </li>
+            <li>
+                <i class="iconfont icon-hanbao"></i>
+                <p>商品</p>
+            </li>
+        </ul>
+    </div>
 </template>
-
 <script>
 export default {
-  name: 'Main',
-  data () {
-    return {
-      
-    }
-  }
+    
 }
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style>
-    .left-nav{
-       color:#fff;
-       font-size:10px;
-       height:100%;
-       background-color: #1D8ce0;
-       float:left;
-       width:5%;
-    }
-    .iconfont{
-       font-size:24px;
-    }
-    .left-nav ul{
-        padding:0px;
-        margin: 0px;
-    }
-    .left-nav li{
-        list-style: none;
+    .leftNav {
+        float: left;
+        width: 5%;
+        height: 100%;
         text-align: center;
-        border-bottom:1px solid #20a0ff;
-        padding:10px;
+        font-size: 10px;
+        background-color: rgb(77, 184, 247);
+    }
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+    li {
+        margin: 20px 0;
+    }
+    p {
+        margin: 0;
+        padding: 0;
     }
 </style>
