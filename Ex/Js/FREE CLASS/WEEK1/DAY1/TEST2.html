@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训</title>
+</head>
+<body>
+
+<!--
+我们一般会把JS代码写在BODY中的最底部(写在其它位置也不会报错)
+  浏览器加载页面一般都是从上到下加载的，JS一般是用来操作DOM元素的，我们需要先保证DOM加载完成，在JS中才可以获取到这些元素，然后进行相关的操作，所以我们会把JS放在结构的下面再加载；
+  放在下面也有一个好处，可以让结构样式先出来在加载JS，减少页面的呈现时间；
+
+可不可以即把JS放在上面，也能让结构完成在执行某些JS代码呢？
+  能，使用原生JS中的window.onload或者JQ中的$(document).ready(function(){})可以实现；JQ中采用的是DOM2中的DOMContentLoaded事件完成的...
+-->
+<script>
+    alert('hello world~~');
+</script>
+</body>
+</html>

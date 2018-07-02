@@ -1,0 +1,93 @@
+@import "reset";
+
+@bg-color: #FFF;
+
+html, body {
+  height: 100%;
+  background: #F4F4F4;
+}
+
+.container {
+  margin: 20px auto;
+  width: 1200px;
+  overflow: hidden;
+}
+
+.header {
+  background: @bg-color;
+
+  span {
+    float: left;
+    width: 90px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    font-size: 14px;
+  }
+
+  a {
+    &:extend(.header span);
+    padding: 0 15px;
+    width: auto;
+    color: #999;
+
+    &:hover {
+      color: #E01D20;
+    }
+  }
+}
+
+.productBox {
+  width: 1210px;
+  margin-top: 20px;
+
+  li {
+    float: left;
+    margin: 0 10px 10px 0;
+    background: @bg-color;
+
+    a {
+      display: block;
+      padding: 0 16px;
+      width: unit(1210/5-10-6-32, px);
+      border: 3px solid transparent;
+
+      &:hover {
+        border-color: #E01D20;
+        border-radius: 5px;
+        box-shadow: 2px 2px 10px 0 #555;
+      }
+
+      img {
+        display: block;
+        width: 100%;
+      }
+
+      p {
+        height: 40px;
+        line-height: 20px;
+        overflow: hidden;
+        font-size: 14px;
+        color: #999;
+      }
+
+      span {
+        line-height: 30px;
+        font-size: 16px;
+        color: #555;
+      }
+    }
+  }
+}
+
+.box {
+  .productBox;
+
+  li {
+    a {
+      span {
+        color: #E01D20;
+      }
+    }
+  }
+}

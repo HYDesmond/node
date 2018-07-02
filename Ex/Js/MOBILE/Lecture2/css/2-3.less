@@ -1,0 +1,9 @@
+.columns(@i) when (@i<=4) {
+  .box@{i} {
+    width: unit(@i*10, %);
+  }
+
+  .columns(@i+1);
+}
+
+.columns(1);

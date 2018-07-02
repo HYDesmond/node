@@ -1,0 +1,26 @@
+.box {
+    color: red;
+    background: url("../img/temp/1.jpg")
+}
+
+.pub {
+    width: 100px;
+    height: 100px
+}
+
+.box {
+    width: 100px;
+    height: 100px;
+    margin: 10px;
+    background: green;
+    padding: 10px;
+    margin: 50px
+}
+
+.box {
+    height: 100px
+}
+
+.box a {
+    height: 100px
+}

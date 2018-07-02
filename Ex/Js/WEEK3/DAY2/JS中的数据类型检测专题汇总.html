@@ -1,0 +1,208 @@
+<!DOCTYPE html><html><head><title>JS中的数据类型检测专题汇总</title><meta charset='utf-8'><link href='https://dn-maxiang.qbox.me/res-min/themes/marxico.css' rel='stylesheet'><style>
+.note-content  {font-family: 'Helvetica Neue', Arial, 'Hiragino Sans GB', STHeiti, 'Microsoft YaHei', 'WenQuanYi Micro Hei', SimSun, Song, sans-serif;}
+
+</style></head><body><div id='preview-contents' class='note-content'>
+                        
+                    
+
+<h2 id="js中的数据类型检测专题汇总">JS中的数据类型检测专题汇总</h2>
+
+<p></p>
+
+<h3 id="typeof">typeof</h3>
+
+<blockquote>
+  <p>用来检测数据类型的运算符 <br>
+  语法：typeof  [value] <br>
+  返回结果：首先是一个字符串，字符串中包含了我们需要检测的数据类型</p>
+</blockquote>
+
+
+
+<pre class="prettyprint with-line-number hljs-dark"><code class="language-javascript hljs"><div class="hljs-line"><span class="hljs-comment line-number">1.</span><span class="hljs-keyword">typeof</span> <span class="hljs-number">12</span> =&gt;<span class="hljs-string">'number'</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">2.</span><span class="hljs-keyword">typeof</span> <span class="hljs-literal">NaN</span> =&gt;<span class="hljs-string">'number'</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">3.</span><span class="hljs-keyword">typeof</span> <span class="hljs-string">''</span> =&gt;<span class="hljs-string">'string'</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">4.</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">5.</span><span class="hljs-keyword">var</span> flag=<span class="hljs-literal">true</span>;
+</div><div class="hljs-line"><span class="hljs-comment line-number">6.</span><span class="hljs-keyword">typeof</span> flag =&gt;<span class="hljs-string">'boolean'</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">7.</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">8.</span><span class="hljs-keyword">typeof</span> <span class="hljs-literal">undefined</span> =&gt;<span class="hljs-string">'undefined'</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">9.</span><span class="hljs-keyword">typeof</span> <span class="hljs-literal">null</span> =&gt;<span class="hljs-string">'object'</span> 虽然是基本类型值，但是它属于空对象指针，检测的结果是对象（局限性）
+</div><div class="hljs-line"><span class="hljs-comment line-number">10.</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">11.</span><span class="hljs-keyword">typeof</span> {} =&gt;<span class="hljs-string">'object'</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">12.</span><span class="hljs-keyword">typeof</span> <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{}  =&gt;<span class="hljs-string">'function'</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">13.</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">14.</span><span class="hljs-keyword">typeof</span> [] =&gt;<span class="hljs-string">'object'</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">15.</span><span class="hljs-keyword">typeof</span> /^$/ =&gt;<span class="hljs-string">'object'</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">16.</span><span class="hljs-comment">//=&gt;使用typeof有自己的局限性：不能具体细分出当前的值是数组还是正则（也就是不能细分对象类型的值）</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">17.</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">18.</span><span class="hljs-keyword">typeof</span> (<span class="hljs-number">1</span>&gt;<span class="hljs-number">1</span>?<span class="hljs-number">0</span>:<span class="hljs-number">2</span>);  =&gt;<span class="hljs-string">'number'</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">19.</span><span class="hljs-keyword">typeof</span> <span class="hljs-number">1</span>&gt;<span class="hljs-number">1</span>?<span class="hljs-number">0</span>:<span class="hljs-number">2</span>;  =&gt;<span class="hljs-number">2</span>  <span class="hljs-comment">//=&gt;先计算typeof 1-&gt;'number'  =&gt;'number'&gt;1?0:2</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">20.</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">21.</span><span class="hljs-keyword">typeof</span> <span class="hljs-keyword">typeof</span> [] =&gt;<span class="hljs-string">'string'</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">22.</span><span class="hljs-comment">//=&gt;typeof []  =&gt;'object'</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">23.</span><span class="hljs-comment">//=&gt;typeof 'object'  =&gt;'string'</span>
+</div></code></pre>
+
+<h3 id="instanceof-constructor">instanceof &amp; constructor</h3>
+
+<blockquote>
+  <p>instanceof ：检测某一个实例是否隶属于某个类 <br>
+  constructor：构造函数</p>
+  
+  <p>使用instanceof检测某个值是否属于某一个数据类型的内置类，从而检测出它是否是这个类型的值；使用instanceof可以实现typeof实现不了的，对对象类型值详细的区分检测；</p>
+</blockquote>
+
+<pre class="prettyprint with-line-number hljs-dark"><code class="language-javascript hljs"><div class="hljs-line"><span class="hljs-comment line-number">1.</span>[] <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Array</span>  =&gt;<span class="hljs-literal">true</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">2.</span>[] <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">RegExp</span> =&gt;<span class="hljs-literal">false</span>
+</div></code></pre>
+
+<blockquote>
+  <p>使用instanceof检测也有自己的弊端: <br>
+  1、基本类型值无法基于它检测</p>
+</blockquote>
+
+
+
+<pre class="prettyprint with-line-number hljs-dark"><code class="language-javascript hljs"><div class="hljs-line"><span class="hljs-comment line-number">1.</span><span class="hljs-keyword">var</span> num=<span class="hljs-number">12</span>;
+</div><div class="hljs-line"><span class="hljs-comment line-number">2.</span>num.toFixed(<span class="hljs-number">2</span>)  =&gt;<span class="hljs-string">'12.00'</span>  <span class="hljs-comment">//=&gt;12是Number类的一个实例，可以调取Number.prototype上的方法，但是它是基本类型值</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">3.</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">4.</span><span class="hljs-keyword">var</span> num2=<span class="hljs-keyword">new</span> <span class="hljs-built_in">Number</span>(<span class="hljs-number">12</span>);
+</div><div class="hljs-line"><span class="hljs-comment line-number">5.</span>num2.toFixed(<span class="hljs-number">2</span>) =&gt;<span class="hljs-string">'12.00'</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">6.</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">7.</span><span class="hljs-keyword">typeof</span> num =&gt;<span class="hljs-string">'number'</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">8.</span><span class="hljs-keyword">typeof</span> num2 =&gt;<span class="hljs-string">'object'</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">9.</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">10.</span><span class="hljs-comment">//=&gt;不管是哪一种方式创建基本类型值，都是自己所属类的实例（只不过类型不一样而已）</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">11.</span>num <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Number</span>  =&gt;<span class="hljs-literal">false</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">12.</span>num2 <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Number</span> =&gt;<span class="hljs-literal">true</span>
+</div></code></pre>
+
+<blockquote>
+  <p>2、instanceof检测的原理是基于原型链检测的：只要当前类在实例的原型链上，最后返回的结果都是true</p>
+</blockquote>
+
+
+
+<pre class="prettyprint with-line-number hljs-dark"><code class="language-javascript hljs"><div class="hljs-line"><span class="hljs-comment line-number">1.</span><span class="hljs-keyword">var</span> ary=[];
+</div><div class="hljs-line"><span class="hljs-comment line-number">2.</span>ary <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Array</span>  =&gt;<span class="hljs-literal">true</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">3.</span>ary <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Object</span> =&gt;<span class="hljs-literal">true</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">4.</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">5.</span><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">Fn</span>(<span class="hljs-params"></span>)</span>{}
+</div><div class="hljs-line"><span class="hljs-comment line-number">6.</span>Fn.prototype=<span class="hljs-keyword">new</span> <span class="hljs-built_in">Array</span>();<span class="hljs-comment">//=&gt;原型继承(Fn是Array的子类)</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">7.</span><span class="hljs-keyword">var</span> f=<span class="hljs-keyword">new</span> Fn();
+</div><div class="hljs-line"><span class="hljs-comment line-number">8.</span>f <span class="hljs-keyword">instanceof</span> <span class="hljs-built_in">Array</span> =&gt;<span class="hljs-literal">true</span> <span class="hljs-comment">//=&gt;但是我们的f其实不应该是数组，虽然在它的原型上可以找到数组，但是它不具备数组的基础结构，这也是instanceof的弊端</span>
+</div></code></pre>
+
+<p><code>constructor</code></p>
+
+<blockquote>
+  <p>获取当前要检测数据值的constructor，判断它是否是某一个数据类型内置类来检测</p>
+</blockquote>
+
+<pre class="prettyprint with-line-number hljs-dark"><code class="language-javascript hljs"><div class="hljs-line"><span class="hljs-comment line-number">1.</span><span class="hljs-keyword">var</span> ary=[];
+</div><div class="hljs-line"><span class="hljs-comment line-number">2.</span>ary.constructor===<span class="hljs-function"><span class="hljs-params">Array</span> =&gt;</span><span class="hljs-literal">true</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">3.</span>ary.constructor===<span class="hljs-function"><span class="hljs-params">RegExp</span> =&gt;</span><span class="hljs-literal">false</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">4.</span>ary.constructor===<span class="hljs-function"><span class="hljs-params">Object</span> =&gt;</span><span class="hljs-literal">false</span> 
+</div><div class="hljs-line"><span class="hljs-comment line-number">5.</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">6.</span>ary.constructor=<span class="hljs-string">'AA'</span>; 
+</div><div class="hljs-line"><span class="hljs-comment line-number">7.</span>ary.constructor===<span class="hljs-function"><span class="hljs-params">Array</span> =&gt;</span><span class="hljs-literal">false</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">8.</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">9.</span><span class="hljs-comment">//=&gt;constructor检测数据类型非常不可靠，因为这个属性是经常容易被修改的</span>
+</div></code></pre>
+
+
+
+<h3 id="objectprototypetostringcallvalue">Object.prototype.toString.call([value])</h3>
+
+<blockquote>
+  <p>获取Object.prototype上的toString方法，让方法中的this变为需要检测的数据类型值，并且让方法执行</p>
+  
+  <p>在Number、String、Boolean、Array、Function、RegExp…这些类的原型上都有一个toString方法：这个方法就是把本身的值转换为字符串的</p>
+</blockquote>
+
+
+
+<pre class="prettyprint with-line-number hljs-dark"><code class="language-javascript hljs"><div class="hljs-line"><span class="hljs-comment line-number">1.</span>(<span class="hljs-number">12</span>).toString() =&gt;<span class="hljs-string">'12'</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">2.</span>(<span class="hljs-literal">true</span>).toString() =&gt;<span class="hljs-string">'true'</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">3.</span>[<span class="hljs-number">12</span>,<span class="hljs-number">23</span>].toString() =&gt;<span class="hljs-string">'12,23'</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">4.</span>...
+</div></code></pre>
+
+<blockquote>
+  <p>在Object这个类的原型上也有一个方法toString，但是这个方法并不是把值转换为字符串，而是<code>返回当前值的所属类详细信息，固定结构：'[object 所属的类]'</code></p>
+</blockquote>
+
+
+
+<pre class="prettyprint with-line-number hljs-dark"><code class="language-javascript hljs"><div class="hljs-line"><span class="hljs-comment line-number">1.</span><span class="hljs-keyword">var</span> obj={<span class="hljs-attr">name</span>:<span class="hljs-string">'珠峰'</span>};
+</div><div class="hljs-line"><span class="hljs-comment line-number">2.</span>obj.toString() <span class="hljs-comment">//=&gt;"[object Object]" 调取的正是Object.prototype.toString</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">3.</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">4.</span><span class="hljs-comment">/*
+</span></div><div class="hljs-line"><span class="hljs-comment line-number">5.</span> * obj.toString()
+</div><div class="hljs-line"><span class="hljs-comment line-number">6.</span> *   首先执行Object.prototype.toString方法
+</div><div class="hljs-line"><span class="hljs-comment line-number">7.</span> *   这个方法中的this就是我们操作的数据值obj
+</div><div class="hljs-line"><span class="hljs-comment line-number">8.</span> *   =&gt;总结：Object.prototype.toString执行的时候会返回当前方法中this的所属类信息
+</div><div class="hljs-line"><span class="hljs-comment line-number">9.</span> *   
+</div><div class="hljs-line"><span class="hljs-comment line-number">10.</span> *   也就是，我想知道谁的所属类信息，我们就把这个toString方法执行，并且让this变为我们检测的这个数据值，那么方法返回的结果就是当前检测这个值的所属类信息
+</div><div class="hljs-line"><span class="hljs-comment line-number">11.</span> *  
+</div><div class="hljs-line"><span class="hljs-comment line-number">12.</span> *   Object.prototype.toString.call([value])
+</div><div class="hljs-line"><span class="hljs-comment line-number">13.</span> *   ({}).toString.call([value])
+</div><div class="hljs-line"><span class="hljs-comment line-number">14.</span> */
+</div></code></pre>
+
+
+
+<pre class="prettyprint with-line-number hljs-dark"><code class="language-javascript hljs"><div class="hljs-line"><span class="hljs-comment line-number">1.</span><span class="hljs-built_in">Object</span>.prototype.toString.call(<span class="hljs-number">12</span>) =&gt;<span class="hljs-string">"[object Number]"</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">2.</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">3.</span><span class="hljs-built_in">Object</span>.prototype.toString.call(<span class="hljs-literal">true</span>) =&gt;<span class="hljs-string">"[object Boolean]"</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">4.</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">5.</span>...
+</div><div class="hljs-line"><span class="hljs-comment line-number">6.</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">7.</span><span class="hljs-string">"[object Number]"</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">8.</span><span class="hljs-string">"[object Boolean]"</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">9.</span><span class="hljs-string">"[object String]"</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">10.</span><span class="hljs-string">"[object Null]"</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">11.</span><span class="hljs-string">"[object Undefined]"</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">12.</span><span class="hljs-string">"[object Object]"</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">13.</span><span class="hljs-string">"[object Array]"</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">14.</span><span class="hljs-string">"[object RegExp]"</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">15.</span><span class="hljs-string">"[object Function]"</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">16.</span>...
+</div></code></pre>
+
+<blockquote>
+  <p>使用toString检测数据类型，不管你是啥值，我们都可以正常检测出需要的结果（这个方法检测是万能的）</p>
+</blockquote>
+
+
+
+<h3 id="检测数据类型方法的封装">检测数据类型方法的封装</h3>
+
+
+
+<pre class="prettyprint with-line-number hljs-dark"><code class="language-javascript hljs"><div class="hljs-line"><span class="hljs-comment line-number">1.</span>~<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params"></span>) </span>{
+</div><div class="hljs-line"><span class="hljs-comment line-number">2.</span>    <span class="hljs-keyword">var</span> obj = {
+</div><div class="hljs-line"><span class="hljs-comment line-number">3.</span>        <span class="hljs-attr">isNumber</span>: <span class="hljs-string">'Number'</span>,
+</div><div class="hljs-line"><span class="hljs-comment line-number">4.</span>        <span class="hljs-attr">isString</span>: <span class="hljs-string">'String'</span>,
+</div><div class="hljs-line"><span class="hljs-comment line-number">5.</span>        <span class="hljs-attr">isBoolean</span>: <span class="hljs-string">'Boolean'</span>,
+</div><div class="hljs-line"><span class="hljs-comment line-number">6.</span>        <span class="hljs-attr">isNull</span>: <span class="hljs-string">'Null'</span>,
+</div><div class="hljs-line"><span class="hljs-comment line-number">7.</span>        <span class="hljs-attr">isUndefined</span>: <span class="hljs-string">'Undefined'</span>,
+</div><div class="hljs-line"><span class="hljs-comment line-number">8.</span>        <span class="hljs-attr">isPlanObject</span>: <span class="hljs-string">'Object'</span>,
+</div><div class="hljs-line"><span class="hljs-comment line-number">9.</span>        <span class="hljs-attr">isArray</span>: <span class="hljs-string">'Array'</span>,
+</div><div class="hljs-line"><span class="hljs-comment line-number">10.</span>        <span class="hljs-attr">isRegExp</span>: <span class="hljs-string">'RegExp'</span>,
+</div><div class="hljs-line"><span class="hljs-comment line-number">11.</span>        <span class="hljs-attr">isFunction</span>: <span class="hljs-string">'Function'</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">12.</span>    };
+</div><div class="hljs-line"><span class="hljs-comment line-number">13.</span>    <span class="hljs-keyword">var</span> check = {};
+</div><div class="hljs-line"><span class="hljs-comment line-number">14.</span>    <span class="hljs-keyword">for</span> (<span class="hljs-keyword">var</span> key <span class="hljs-keyword">in</span> obj) {
+</div><div class="hljs-line"><span class="hljs-comment line-number">15.</span>        <span class="hljs-keyword">if</span> (obj.hasOwnProperty(key)) {
+</div><div class="hljs-line"><span class="hljs-comment line-number">16.</span>            check[key] = (<span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">classValue</span>) </span>{
+</div><div class="hljs-line"><span class="hljs-comment line-number">17.</span>                <span class="hljs-keyword">return</span> <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">val</span>) </span>{
+</div><div class="hljs-line"><span class="hljs-comment line-number">18.</span>                    <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> <span class="hljs-built_in">RegExp</span>(<span class="hljs-string">'\\[object '</span> + classValue + <span class="hljs-string">'\\]'</span>).test(<span class="hljs-built_in">Object</span>.prototype.toString.call(val));
+</div><div class="hljs-line"><span class="hljs-comment line-number">19.</span>                }
+</div><div class="hljs-line"><span class="hljs-comment line-number">20.</span>            })(obj[key]);
+</div><div class="hljs-line"><span class="hljs-comment line-number">21.</span>        }
+</div><div class="hljs-line"><span class="hljs-comment line-number">22.</span>    }
+</div><div class="hljs-line"><span class="hljs-comment line-number">23.</span>    <span class="hljs-built_in">window</span>.check = check;
+</div><div class="hljs-line"><span class="hljs-comment line-number">24.</span>}();
+</div></code></pre></div></body></html>

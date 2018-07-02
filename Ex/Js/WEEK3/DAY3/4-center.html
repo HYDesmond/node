@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        /*html {
+            height: 100%;
+        }
+
+        body {
+            display: flex;
+            height: 100%;
+
+            flex-flow: row wrap;
+            align-items: center;
+            justify-content: center;
+        }
+*/
+        .box {
+            position: absolute;
+            width: 200px;
+            height: 100px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+<div class="box" id="box"></div>
+<script>
+    //=>JS中只要获取到当前盒子具体的LEFT/TOP值即可
+    var winW = document.documentElement.clientWidth || document.body.clientWidth;
+    var winH = document.documentElement.clientHeight || document.body.clientHeight;
+    var boxW = box.offsetWidth;
+    var boxH = box.offsetHeight;
+    box.style.left = (winW - boxW) / 2 + 'px';
+    box.style.top = (winH - boxH) / 2 + 'px';
+</script>
+</body>
+</html>

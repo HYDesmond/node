@@ -1,0 +1,23 @@
+@import "reset";
+//=>在自己的LESS中把RESET导入进来
+@import (reference) "public";
+//=>加了reference只导入进来使用,但是不编译里面的代码
+
+.box {
+  .mark { //=> .box .mark
+
+  }
+
+  //&：在.box后面紧跟着谁
+  &.pp { //=>.box.pp
+    background: red;
+  }
+
+  & > .mm {
+    background: green;
+  }
+
+  &:hover {
+    background: orange;
+  }
+}

@@ -1,0 +1,65 @@
+<!DOCTYPE html><html><head><title>CSS预编译语言-LESS</title><meta charset='utf-8'><link href='https://dn-maxiang.qbox.me/res-min/themes/marxico.css' rel='stylesheet'><style>
+.note-content  {font-family: 'Helvetica Neue', Arial, 'Hiragino Sans GB', STHeiti, 'Microsoft YaHei', 'WenQuanYi Micro Hei', SimSun, Song, sans-serif;}
+
+</style></head><body><div id='preview-contents' class='note-content'>
+                        
+                    
+
+<h2 id="css预编译语言-less">CSS预编译语言-LESS</h2>
+
+<p></p>
+
+<h3 id="less的作用">LESS的作用</h3>
+
+<blockquote>
+  <p>CSS层叠样式表，它是标记语言，不是编程语言; 所有的预编译CSS语言(less/sass…)都是赋予了CSS的面向对象思想；</p>
+</blockquote>
+
+<h3 id="less的编译">LESS的编译</h3>
+
+<blockquote>
+  <p>LESS叫做预编译CSS：写好的LESS代码浏览器是不能渲染的，需要我们把它编译成为能渲染的CSS才可以</p>
+</blockquote>
+
+<p><code>开发环境</code></p>
+
+<blockquote>
+  <p>在本地开发中这是开发环境</p>
+</blockquote>
+
+<p><code>生产环境</code></p>
+
+<blockquote>
+  <p>本地开发完成了，我们需要把代码上传到服务器上，服务器上的环境叫做生产环境</p>
+</blockquote>
+
+<p>在开发环境下，我们一般都通过导入LESS插件(less-2.5.3.min.js)来随时编译LESS代码</p>
+
+
+
+<pre class="prettyprint with-line-number hljs-dark"><code class="hljs xml"><div class="hljs-line"><span class="hljs-comment line-number">1.</span><span class="hljs-comment">&lt;!--rel的值变为了stylesheet/less --&gt;</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">2.</span><span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">'stylesheet/less'</span> <span class="hljs-attr">href</span>=<span class="hljs-string">'css/1.less'</span>&gt;</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">3.</span><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">src</span>=<span class="hljs-string">'js/less-2.5.3.min.js'</span>&gt;</span><span class="undefined"></span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">4.</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">5.</span><span class="hljs-comment">&lt;!--由于每一次加载页面，都需要导入LESS.JS，并且把LESS文件重新编译为CSS（很消耗性能，页面打开速度肯定会变慢），所以真实项目中，只有开发环境下我们使用这种模式，生产环境下，我们肯定需要事先把写好的LESS编译为正常的CSS后，在上线，以后用户访问的都是编译好的CSS，而不是拿LESS现编译--&gt;</span>
+</div></code></pre>
+
+<p>生产环境中，我们需要事先把LESS编译成为CSS： <br>
+1、使用NODE编译</p>
+
+
+
+<pre class="prettyprint with-line-number hljs-dark"><code class="hljs stylus"><div class="hljs-line"><span class="hljs-comment line-number">1.</span><span class="hljs-number">1</span>、下载安装NODE
+</div><div class="hljs-line"><span class="hljs-comment line-number">2.</span><span class="hljs-number">2</span>、在NODE全局环境下使用npm包管理器，安装一个less模块
+</div><div class="hljs-line"><span class="hljs-comment line-number">3.</span>npm install less -g
+</div><div class="hljs-line"><span class="hljs-comment line-number">4.</span>
+</div><div class="hljs-line"><span class="hljs-comment line-number">5.</span><span class="hljs-number">3</span>、在执行的目录中执行
+</div><div class="hljs-line"><span class="hljs-comment line-number">6.</span>lessc xxx<span class="hljs-selector-class">.less</span> xxx<span class="hljs-selector-class">.css</span> 把LESS编译为CSS
+</div><div class="hljs-line"><span class="hljs-comment line-number">7.</span>lessc xxx<span class="hljs-selector-class">.less</span> xxx<span class="hljs-selector-class">.min</span><span class="hljs-selector-class">.css</span> -x 不仅编译成CSS，而且还把CSS压缩了
+</div></code></pre>
+
+<p>2、使用编译工具</p>
+
+<h3 id="less中的基础语法">LESS中的基础语法</h3>
+
+<p><code>变量</code></p></div></body></html>

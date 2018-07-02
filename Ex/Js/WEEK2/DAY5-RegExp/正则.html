@@ -1,0 +1,69 @@
+<!DOCTYPE html><html><head><title>正则</title><meta charset='utf-8'><link href='https://dn-maxiang.qbox.me/res-min/themes/marxico.css' rel='stylesheet'><style>
+.note-content  {font-family: 'Helvetica Neue', Arial, 'Hiragino Sans GB', STHeiti, 'Microsoft YaHei', 'WenQuanYi Micro Hei', SimSun, Song, sans-serif;}
+
+</style></head><body><div id='preview-contents' class='note-content'>
+                        
+                    
+
+<h2 id="正则">正则</h2>
+
+<p></p>
+
+<h3 id="什么是正则">什么是正则？</h3>
+
+<blockquote>
+  <p>正则就是一个规则，用来处理<strong><code>字符串</code></strong>的规则 <br>
+  1、正则匹配 <br>
+  编写一个规则，验证某个字符串是否符合这个规则，正则匹配使用的是 test 方法</p>
+  
+  <p>2、正则捕获 <br>
+  编写一个规则，在一个字符串中把符合规则的内容都获取到，正则捕获使用的方法：正则的exec方法、字符串中的split、replace、match等方法都支持正则</p>
+</blockquote>
+
+
+
+<pre class="prettyprint with-line-number hljs-dark"><code class="language-javascript hljs"><div class="hljs-line"><span class="hljs-comment line-number">1.</span><span class="hljs-keyword">var</span> reg = <span class="hljs-regexp">/^$/</span>; <span class="hljs-comment">//=&gt;两个斜杠中间包含一些内容就是正则，两个斜杠之间包含的全部内容都是元字符</span>
+</div></code></pre>
+
+<h3 id="正则的元字符和修饰符">正则的元字符和修饰符</h3>
+
+<blockquote>
+  <p>任何一个正则都是由 元字符 和 修饰符 组成的</p>
+</blockquote>
+
+<p><code>修饰符</code> <br>
+g(global)：全局匹配 <br>
+i(ignoreCase)：忽略大小写匹配 <br>
+m(multiline)：多行匹配</p>
+
+<p><code>元字符</code> <br>
+[量词元字符] <br>
++：让前面的元字符出现一到多次 <br>
+?：出现零到一次 <br>
+*：出现零到多次 <br>
+{n}：出现n次 <br>
+{n,}：出现n到多次 <br>
+{n,m}：出现n到m次</p>
+
+<p>[特殊意义的元字符] <br>
+\：转义字符（把一个普通字符转变为有特殊意义的字符，或者把一个有意义字符转换为普通的字符） <br>
+.：除了\n（换行符）以外的任意字符 <br>
+\d：匹配一个0~9之间的数字 <br>
+\D：匹配任意一个非0~9之间的数字（大写字母和小写字母的组合正好是反向的） <br>
+\w：匹配一个 <code>0~9或字母或_</code> 之间的字符 <br>
+\s：匹配一个任意空白字符 <br>
+\b：匹配一个边界符 <br>
+x|y：匹配x或者y中的一个 <br>
+[a-z]：匹配a-z中的任意一个字符 <br>
+[^a-z]：和上面的相反，匹配任意一个非a-z的字符 <br>
+[xyz]：匹配x或者y或者z中的一个字符 <br>
+[^xyz]：匹配除了xyz以外的任意字符 <br>
+()：正则的小分组，匹配一个小分组（小分组可以理解为大正则中的一个小正则） <br>
+^：以某一个元字符开始 <br>
+$：以某一个元字符结束 <br>
+?:：只匹配不捕获 <br>
+?=：正向预查 <br>
+?!：负向预查 <br>
+……</p>
+
+<p>除了以上特殊元字符和量词元字符，其余的都叫做普通元字符：代表本身意义的元字符</p></div></body></html>

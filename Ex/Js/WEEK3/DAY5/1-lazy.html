@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训</title>
+    <link rel="stylesheet" href="css/reset.min.css">
+    <style>
+        /*这种统一设置的属性选择器在IE6~7中不兼容*/
+        /*img[src=''] {
+            display: none;
+        }*/
+
+        .defaultImg {
+            /*设置一张默认的背景图占位*/
+            background: url("img/default.gif") no-repeat center center #EEE;
+        }
+
+        .imgBox {
+            margin: 2000px auto;
+            width: 1000px;
+            height: 300px;
+        }
+
+        .imgBox img {
+            display: none;
+            width: 100%;
+            height: 100%;
+        }
+    </style>
+</head>
+<body>
+<!--
+  图片懒加载：
+    1、IMG标签的SRC不存放图片的地址(如果存放真实的地址,页面一加载图片肯定就加载出来了),我们把真实图片的地址存储在当前IMG标签的自定义属性上(DATA-IMG)
+    2、为了保证当前图片没有真实地址的时候,浏览器中不会出现叉叉或者出现ALT中的内容,我们一般都会把图片先隐藏(display:none opacity:0...)，等到后期把真实图片加载出来，在让当前图片展示
+    3、看不到真实图片了，我们最好给一个占位图片（占位图：要求一定要很小,最好是1KB）：我们在IMG外面包一层DIV盒子,把占位图赋值给当前盒子的背景图片来处理
+
+    =>开始IMG不显示,展示的是默认的背景图,当IMG真实地址加载完成后,我们让IMG显示,此时真实图片会覆盖住背景图
+-->
+
+<div class="imgBox defaultImg" id="imgBox">
+    <img src="" data-img="img/banner1.jpg" alt="图片无法加载的时候用文字代替,图片无法SEO优化,但是可以在ALT中编写有利于SEO优化的关键词">
+</div>
+
+<script src="js/utils.js"></script>
+<script src="js/1-2.js"></script>
+</body>
+</html>

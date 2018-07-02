@@ -1,0 +1,70 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Helvetica Neue', Arial, 'Hiragino Sans GB', STHeiti, 'Microsoft YaHei', 'WenQuanYi Micro Hei', SimSun, Song, sans-serif;
+    font-size: 14px;
+}
+
+ul, li {
+    list-style: none;
+}
+
+a, a:hover, a:active {
+    text-decoration: none;
+    color: #000;
+}
+
+/*--newsBox--*/
+.newsBox {
+    margin: 20px auto;
+    padding: 20px;
+    width: 300px;
+    border: 1px dashed green;
+}
+
+.newsBox li {
+    height: 35px;
+    line-height: 35px;
+
+    /*超出一行的文本可以自动裁切*/
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+/*--使用CSS3中新增加的结构伪类选择器实现需求(IE低版本浏览器不兼容)--*/
+/*.newsBox li:nth-child(even) {
+    !*EVEN：偶数行  ODD：奇数行*!
+    background: #EEE;
+}
+
+.newsBox li:hover {
+    background: lightcyan;
+}*/
+
+/*N：0~正无穷的整数*/
+/*
+.newsBox li:nth-child(3n+1) {
+    background: lightcoral;
+}
+
+.newsBox li:nth-last-child(3n+2) {
+    background: lightblue;
+}
+
+.newsBox li:nth-last-child(3n+3) {
+    background: lightsalmon;
+}
+*/
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训</title>
+    <link rel="stylesheet" href="css/reset.min.css">
+    <style>
+        html, body {
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .outer {
+            position: relative;
+            margin: 50px auto;
+            width: 260px;
+            height: 260px;
+            border: 20px solid green;
+        }
+
+        .inner {
+            position: absolute;
+            top: 20px;
+            left: 40px;
+            width: 80px;
+            height: 80px;
+            border: 20px solid red;
+        }
+
+        .center {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            width: 20px;
+            height: 20px;
+            border: 20px solid blue;
+        }
+    </style>
+</head>
+<body>
+<div class="outer" id="outer">
+    <div class="inner" id="inner">
+        <div class="center" id="center"></div>
+    </div>
+</div>
+
+<script src="js/utils.js"></script>
+<script src="js/2-2.js"></script>
+</body>
+</html>

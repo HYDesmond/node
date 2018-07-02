@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训 http://www.zhufengpeixun.cn</title>
+</head>
+<body>
+<!--引用某个模板-->
+<%include ../header.ejs%>
+<!--取值表达式-->
+<h1><%=username%></h1>
+<p><%=password%></p>
+<!--js语法-->
+<%arr.map((item)=>{%>
+    <li><%=item+1%></li>
+<%})%>
+<%for(var i = 0; i<arr.length;i++){%>
+    <li><%=arr[i]%></li>
+<%}%>
+<!--转译html-->
+<%-html%>
+</body>
+</html>

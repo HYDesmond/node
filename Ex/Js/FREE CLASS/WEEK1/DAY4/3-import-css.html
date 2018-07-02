@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <title>珠峰培训</title>
+    <!--内嵌-->
+    <style>
+        /*导入式：扩展导入式和外链式的本质区别*/
+        @import "css/1-import.css";
+
+        div {
+            height: 100px;
+        }
+    </style>
+    <!--外链式-->
+    <link rel="stylesheet" href="css/1-import.css">
+</head>
+<body>
+
+<!--行内:HTML和CSS混淆,代码结构混乱-->
+<div style="width:100px;"></div>
+
+
+<script>
+    //=>真实项目中我们一般都会把CSS放在BODY的上面，把JS放在BODY的末尾(约定俗成的规范)
+    //==>BODY中编写的都是HTML标签,JS很多时候需要操作这些元素,首先我们要保证元素加载成功,才可以在JS中获取到(JS放在结构之后加载,JS放在BODY的末尾)
+    //==>如果把JS放在HTML标签前面了，如何等到结构加载完成在加载JS?
+    //JS:window.onload=function(){} 页面中所有资源文件都加载完成执行操作
+    //JQ:$(document).ready(function(){}) 页面中的结构加载完成就会执行操作  window.addEventListener('load',function(){},false) / window.attachEvent('onreadystatechange',function(){})
+
+
+    //1、写静态页面
+    //->从UI设计师手里拿到设计稿(静态的图片：PSD)，使用HTML+CSS把图片变为静态的HTML页面
+    //2、拿JS写一些用户交互的效果，例如：点击某一个按钮，实现图片的切换等 =>JS中有一个很常用的操作就是用来操作页面中的HTML标签的(DOM元素的)
+</script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+.outer {
+  margin: 50px;
+  width: 200px;
+  height: 200px;
+  border: 1px solid green;
+  /*.outer:hover*/
+}
+.outer .inner {
+  margin: 20px;
+  width: 100px;
+  height: 100px;
+  background: lightblue;
+  box-shadow: 0 0 10px 0 #000;
+  -webkit-transition: all 0.5s linear 0s;
+  -moz-transition: all 0.5s linear 0s;
+  -ms-transition: all 0.5s linear 0s;
+  -o-transition: all 0.5s linear 0s;
+  transition: all 0.5s linear 0s;
+}
+.outer:hover .inner {
+  box-shadow: 0 0 10px 0 #4d4d4d;
+  -webkit-transform: rotate(360deg);
+  -moz-transform: rotate(360deg);
+  -ms-transform: rotate(360deg);
+  -o-transform: rotate(360deg);
+  transform: rotate(360deg);
+}

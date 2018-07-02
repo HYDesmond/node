@@ -1,0 +1,34 @@
+@color: red;
+@img: '../img/temp';
+.box {
+  color: @color;
+  background: url("@{img}/1.jpg");
+}
+
+.pub {
+  width: 100px;
+  height: 100px;
+}
+
+.pub(@p:10px,@m:10px) {
+  /*加括号就只是一个普通的函数，不在是样式类了，在LESS编译的时候不进行编译了*/
+  background: green;
+  padding: @p;
+  margin: @m;
+}
+
+.box {
+  .pub;
+  .pub(@m:50px); /*把PUB中的样式代码COPY一份过来*/
+}
+
+@H: 200px;
+.box {
+  /*变量提升：@H:100px;*/
+  height: @H;
+
+  @H: 100px; /*也存在变量提升的概念：用到一个变量先看是否为自己私有的，不是的话找父级作用域中私有的*/
+  a {
+    height: @H;
+  }
+}

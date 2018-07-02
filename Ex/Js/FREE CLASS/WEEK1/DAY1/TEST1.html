@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<!-- lang="en" : language='english' 设置当前页面的语言为英语,当页面中出现非英语的时候,浏览器会给出是否翻译的提示-->
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>珠峰培训</title>
+    <!--内嵌导入样式-->
+    <style>
+        /*--导入式导入外部的样式--*/
+        @import "css/2.css";
+
+        div {
+            height: 200px;
+        }
+    </style>
+    <!--外链导入样式-->
+    <link rel="stylesheet" href="css/1.css">
+</head>
+<body>
+<!--行内样式（不推荐）-->
+<div style="width: 100px;"></div>
+
+<!--行内导入JS（不推荐：容易被别人修改脚本然后恶意篡改）-->
+<div onclick="alert('xue shi yang is very good~~')">点我啊!!</div>
+
+<!--内嵌导入JS-->
+<!--<script>
+    alert('hello world~~');
+</script>-->
+
+<!--外链式导入JS：在SCRIPT脚本块中不能再编写其它的JS代码，写了浏览器也不会执行，它只会识别外部JS文件中的代码-->
+<script src="js/1.js">
+    alert('hello world~~');//->识别不了JS代码
+</script>
+</body>
+</html>

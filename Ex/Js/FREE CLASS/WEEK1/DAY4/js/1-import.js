@@ -1,0 +1,1 @@
+alert('good good study,day day up!');
