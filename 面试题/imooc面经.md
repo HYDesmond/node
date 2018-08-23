@@ -53,7 +53,7 @@ null==undefined//其他判断是否相等都用===
 > 解答：
 
 - JS变量按照存储方式区分为哪些类型，并描述其特点
-> 考点：
+> 考点：JS变量类型
 
 > 知识点：
 
@@ -64,8 +64,10 @@ null==undefined//其他判断是否相等都用===
 
 > 知识点：
 
-> 解答：
-
+> 解答：`json`是`js`对象或数据格式
+- 对象`api`
+    - JSON.stringify()
+    - JSON.parse()
 - `window.onload`和`DOMContentLoaded`的区别？
 > 考点：浏览器渲染过程
 
